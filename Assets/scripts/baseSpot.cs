@@ -19,6 +19,8 @@ public class baseSpot : MonoBehaviour
     public GameObject afterburner;
     private Rigidbody rb;
     private AudioSource audioSource;
+    public GameObject GameManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,10 +110,8 @@ public class baseSpot : MonoBehaviour
     [System.Obsolete]
     private void restart()
     {
-        SceneManager.LoadScene("game");
-        //Destroy(player);
-
-        //SceneManager.LoadScene("MainMenu");
+        //SceneManager.LoadScene("game");
+        SceneManager.LoadScene("MainMenu");
 
     }
 }

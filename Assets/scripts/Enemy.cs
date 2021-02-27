@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     private BoxCollider col;
     private Rigidbody rb;
-    bool dead = false;
+    public bool dead = false;
     public float GravityMultiplier;
     private AudioSource deathSound;
     public UnityEvent DieEvent;
@@ -44,20 +44,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-            Vector3 movement = Physics.gravity * GravityMultiplier;
-            //controller.Move(movement * speed * Time.fixedDeltaTime);
-            if (canMove && !dead)
-            {
-                //movement += Vector3.Normalize(player.transform.position - transform.position);
-                //transform.LookAt(new Vector3(player.transform.position.x, 0, player.transform.position.z));
-            //controller.Move(movement * speed * Time.fixedDeltaTime);
-            //agent.Warp(Vector3.zero);
-            }
-       
-        //if (dead)
-       // {
-            //controller.SimpleMove(Vector3.down * 10);
-        //}
     }
 
     private void OnTriggerEnter(Collider other)

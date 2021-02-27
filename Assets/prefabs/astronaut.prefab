@@ -592,7 +592,7 @@ MonoBehaviour:
   speed: 5
   demage: 3
   life: 2
-  spawner: {fileID: 0}
+  dead: 0
   GravityMultiplier: 0.4
   DieEvent:
     m_PersistentCalls:
@@ -617,7 +617,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4885449124481739258}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.45
   m_Speed: 3.5

@@ -16,7 +16,7 @@ public class CanvasController_Paused : MonoBehaviour
 	void Start()
 	{
 		myCanvas = gameObject.GetComponent<Canvas> (); // We set our canvas
-		pauseControl = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<MenuController_Paused> (); // We define the pauseControl variable
+		pauseControl = GetComponentInParent<MenuController_Paused> (); // We define the pauseControl variable
 	}
 
 	void Update()

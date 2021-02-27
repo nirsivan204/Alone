@@ -34,6 +34,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] private AudioClip m_HurtSound;           // the sound played when character touches back on ground.
         public int max_life;
         private int life;
         public textManager txtmgr;
@@ -60,6 +61,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private GunScript gun;
         public float mouseSensitivity;
         private bool isPause = false;
+        private Collider collider;
         // Use this for initialization
         private void Start()
         {
@@ -81,9 +83,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_fire = false;
             gun = GetComponentInChildren<GunScript>();
             GameManager.GetComponent<MenuController_Paused>().pauseEvent.AddListener(pause);
+            collider = gameObject.GetComponent<Collider>();
         }
 
-        private void pause()
+        public void pause()
         {
 
             isPause = !isPause;
@@ -342,26 +345,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
 
-/*        private void OnTriggerEnter(Collider collision)
-        {
-            if (collision.gameObject.tag == "part")
-            {
-                partNearby = collision.gameObject;
-                Debug.Log("near part");
-
-            }
-        }
-        
-        private void OnTriggerExit(Collider collision)
-        {
-            if (collision.gameObject.tag == "part")
-            {
-                partNearby = null;
-                Debug.Log("nulify");
-
-            }
-        }*/
-
         private void takePart()
         {
 
@@ -380,6 +363,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         isHolding = true;
                         carriedObject = p.gameObject;
                         p.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        Physics.IgnoreCollision(p.gameObject.GetComponent<Collider>(), collider);
                         //Debug.Log("starting HOLD");
                     }
                 }
@@ -389,24 +373,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 //Debug.Log("ending HOLD");
                 isHolding = false;
                 carriedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                Physics.IgnoreCollision(carriedObject.gameObject.GetComponent<Collider>(), collider, false) ;
                 carriedObject = null;
             }
             
         }
 
-        /*private void OnCollisionEnter(Collision collision)
-        {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy)
-            {
-                hurt(enemy.demage, enemy.transform.position);
-            }
-        }*/
-
         private void OnTriggerEnter(Collider other)
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            if (enemy)
+            if (enemy && !enemy.dead)
             {
                 hurt(enemy.demage, enemy.transform.position);
             }
@@ -416,12 +392,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             //enemyPosition
             life -= hitPoints;
-            if(life <= 0)
+            m_AudioSource.clip = m_HurtSound;
+            m_AudioSource.Play();
+            if (life <= 0)
             {
                 txtmgr.showText("You are dead, restarting in 3 seconds");
                 Invoke("restart", 3);
             }
             lifeProgBar.BarValue = life;
+
         }
 
         void carry(GameObject o)

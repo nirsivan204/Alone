@@ -56,16 +56,22 @@ public class GunScript : MonoBehaviour
 
         RaycastHit target;
         bool status = Physics.Raycast(bulletSpawnPos.position, bulletSpawnPos.forward, out target, 100);
-        if (status && target.collider.GetComponent<Enemy>())
+        if (status)
         {
-            //Debug.Log(target.collider.gameObject.name);
-            crosshairSpriteRenderer.color = Color.red;
+            Enemy enemy = target.collider.GetComponent<Enemy>();
+            if (enemy && !enemy.dead)
+            {
+                crosshairSpriteRenderer.color = Color.red;
+            }
+            else
+            {
+                crosshairSpriteRenderer.color = Color.white;
+            }
         }
         else
         {
             crosshairSpriteRenderer.color = Color.white;
         }
-
     }
 
     public void shoot()
