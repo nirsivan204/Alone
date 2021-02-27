@@ -19,7 +19,7 @@ public class GunScript : MonoBehaviour
     private float rechargeTime = 1;
     private AudioSource m_AudioSource;
     private bool isShooting;
-    private MeshRenderer gunMesh;
+    public MeshRenderer gunMesh;
     public GameObject crosshair;
     private SpriteRenderer crosshairSpriteRenderer;
     void Start()
@@ -32,7 +32,6 @@ public class GunScript : MonoBehaviour
         recharge();
         m_AudioSource = GetComponent<AudioSource>();
         isShooting = false;
-        gunMesh = GetComponent<MeshRenderer>();
         crosshairSpriteRenderer = crosshair.GetComponent<SpriteRenderer>();
 
     }

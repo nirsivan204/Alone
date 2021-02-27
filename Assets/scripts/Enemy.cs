@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         col = GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         deathSound = GetComponent<AudioSource>();
-
+        //animator.SetTrigger("idle");
     }
     private void Awake()
     {

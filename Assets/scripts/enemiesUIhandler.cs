@@ -20,7 +20,7 @@ public class enemiesUIhandler : MonoBehaviour
         
     }
 
-    private void updateUI(int numOfEnemies,int timeUntilNextWave)
+    public void updateUI(int numOfEnemies,int timeUntilNextWave)
     {
         enemiesTextComponent.text = numOfEnemies.ToString();
         nWaveTimeTextComponent.text = timeUntilNextWave.ToString();

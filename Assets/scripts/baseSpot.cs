@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class baseSpot : MonoBehaviour
@@ -19,7 +20,8 @@ public class baseSpot : MonoBehaviour
     public GameObject afterburner;
     private Rigidbody rb;
     private AudioSource audioSource;
-    public GameObject GameManager;
+    public gameManager GM;
+    public PlayableDirector pd_liftOff;
 
 
     // Start is called before the first frame update
@@ -94,7 +96,7 @@ public class baseSpot : MonoBehaviour
     private void finishGame()
     {
         player.SetActive(false);
-        finishCamera.SetActive(true);
+        GM.showMovieclip(pd_liftOff);
         afterburner.SetActive(true);
         rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
         Invoke("liftOff", 3f);
@@ -110,8 +112,8 @@ public class baseSpot : MonoBehaviour
     [System.Obsolete]
     private void restart()
     {
-        //SceneManager.LoadScene("game");
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("game");
+        //SceneManager.LoadScene("MainMenu");
 
     }
 }

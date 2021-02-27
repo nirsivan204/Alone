@@ -88,7 +88,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void pause()
         {
-
+            gun.setVisibility(isPause);
             isPause = !isPause;
         } 
 

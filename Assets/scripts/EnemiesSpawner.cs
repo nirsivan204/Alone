@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 [System.Serializable]
 public class updateUIEvent : UnityEvent<int , int>
@@ -33,7 +34,9 @@ public class EnemiesSpawner : MonoBehaviour
     public textManager txtmgr;
     public updateUIEvent updateUIevent;
     private bool isPause = true;
-    public gameManager g;
+    public gameManager gm;
+    public PlayableDirector pd_enemySpawn;
+    private bool firstSpawn =true;
     private void Awake()
     {
         updateUIevent = new updateUIEvent();
@@ -46,6 +49,11 @@ public class EnemiesSpawner : MonoBehaviour
         finishSpawn = false;
         timeToFirstWave = 5;
         timeUntilNextWave = timeToFirstWave;
+
+    }
+
+    public void startSpawn()
+    {
         updateUI();
         countTime();
     }
@@ -98,8 +106,12 @@ public class EnemiesSpawner : MonoBehaviour
         clone.transform.position = places[lastPlaceIndex].position;
         clone.SetActive(true);
         clone.GetComponentInChildren<Enemy>().DieEvent.AddListener(killOneEnemy);
-        //vc.LookAt = transform;
-        g.showMovieclip();
+        if (firstSpawn)
+        {
+            vc.LookAt = clone.transform;
+            firstSpawn = false;
+            gm.showMovieclip(pd_enemySpawn);
+        }
         enemeiesLeftToSpwan--;
         lastPlaceIndex++;
         livingEnemies++;
