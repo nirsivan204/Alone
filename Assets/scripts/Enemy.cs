@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     public float speed;
     public int demage;
     public int life;
-    private bool canMove;
     private Animator animator;
     private BoxCollider col;
     private Rigidbody rb;
@@ -28,7 +27,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canMove = true;
         animator = GetComponent<Animator>();
         col = GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
@@ -50,7 +48,6 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            canMove = false;
             animator.SetTrigger("idle");
             Invoke("enableMove", 2.0f);
             hitPlayerEventStartOrStop.Invoke(false);
@@ -59,7 +56,6 @@ public class Enemy : MonoBehaviour
 
     private void enableMove()
     {
-        canMove = true;
         animator.SetTrigger("run");
         hitPlayerEventStartOrStop.Invoke(true);
     }
@@ -77,7 +73,6 @@ public class Enemy : MonoBehaviour
     {
         hitPlayerEventStartOrStop.Invoke(false);
         deathSound.Play();
-        canMove = false;
         animator.SetTrigger("die");
         DieEvent.Invoke();
         dead = true;

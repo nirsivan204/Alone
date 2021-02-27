@@ -7,8 +7,9 @@ public class testnavmesh : MonoBehaviour
 {
     public GameObject player;
     private NavMeshAgent agent;
-    private bool isMoving;
+    private bool isMoving = false;
     private Rigidbody rb;
+    private Collider coll;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,9 @@ public class testnavmesh : MonoBehaviour
         GetComponentInChildren<Enemy>().hitPlayerEventStartOrStop.AddListener(startOrStop);
         GetComponentInChildren<Enemy>().DieEvent.AddListener(waitForAnimation);
         agent = GetComponent<NavMeshAgent>();
-        isMoving = true;
         rb = GetComponent<Rigidbody>();
+        coll = GetComponent<Collider>();
+
     }
 
     // Update is called once per frame
@@ -47,4 +49,17 @@ public class testnavmesh : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        startFollowPlayer();
+    }
+
+    private void startFollowPlayer()
+    {
+        isMoving = true;
+        coll.enabled = false;
+        rb.useGravity = false;
+        agent.enabled = true;
+
+    }
 }

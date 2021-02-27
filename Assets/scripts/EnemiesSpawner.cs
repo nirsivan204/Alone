@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,6 +17,7 @@ public class EnemiesSpawner : MonoBehaviour
     public Transform spawnPlace2;
     public Transform spawnPlace3;
     public Transform spawnPlace4;
+    public CinemachineVirtualCamera vc;
     private Transform[] places;
     public int enemyNumAtStart;
     public int enemyToAdd;
@@ -31,6 +33,7 @@ public class EnemiesSpawner : MonoBehaviour
     public textManager txtmgr;
     public updateUIEvent updateUIevent;
     private bool isPause = true;
+    public gameManager g;
     private void Awake()
     {
         updateUIevent = new updateUIEvent();
@@ -95,6 +98,8 @@ public class EnemiesSpawner : MonoBehaviour
         clone.transform.position = places[lastPlaceIndex].position;
         clone.SetActive(true);
         clone.GetComponentInChildren<Enemy>().DieEvent.AddListener(killOneEnemy);
+        //vc.LookAt = transform;
+        g.showMovieclip();
         enemeiesLeftToSpwan--;
         lastPlaceIndex++;
         livingEnemies++;
