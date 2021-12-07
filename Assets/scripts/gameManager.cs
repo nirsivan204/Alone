@@ -9,19 +9,24 @@ public class gameManager : MonoBehaviour
 {
     public PlayableDirector pd_start;
     public PlayableDirector pd_liftoff;
-    public GameObject player;
+    public FirstPersonController player;
     public GameObject movieClipCamera;
     public GameObject enemyManager;
     public FirstPersonController playerScript;
     public TimelineAsset enemyShot;
     public TimelineAsset startingShot;
     private bool game_started = false;
+    [SerializeField] enemiesUIhandler ui;
 
     // Start is called before the first frame update
     void Start()
     {
         //showMovieclip(startingShot);
+        pd_start.RebuildGraph(); // the graph must be created before getting the playable graph
+        pd_start.playableGraph.GetRootPlayable(0).SetSpeed(1.60f);
         showMovieclip(pd_start);
+
+        //SkipClip();
         //Invoke("showMovieclip", 10);
     }
 
@@ -34,12 +39,26 @@ public class gameManager : MonoBehaviour
     public void showMovieclip(PlayableDirector pd)//TimelineAsset shot)
     {
         playerScript.pause();
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        //if(pd == pd_start)
+       // {
         movieClipCamera.SetActive(true);
+        //}
+        //movieClipCamera.SetActive(true);
+        currentDirector = pd;
         pd.Play();
+        ui.showSkipButton();
     }
-
-    public void clipEnded()
+    PlayableDirector currentDirector;
+    public void SkipClip()
     {
+        SkipClip(currentDirector);
+    }
+    private void SkipClip(PlayableDirector pd)
+    {
+        //pd. //Stop();
+        pd.enabled = false;
         movieClipCamera.SetActive(false);
         resumeGame();
     }
@@ -51,6 +70,8 @@ public class gameManager : MonoBehaviour
             enemyManager.GetComponent<EnemiesSpawner>().startSpawn();
             game_started = true;
         }
+        ui.showSkipButton(false);
+        movieClipCamera.SetActive(false);
         playerScript.pause();
     }
 

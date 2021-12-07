@@ -61,7 +61,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private GunScript gun;
         public float mouseSensitivity;
         private bool isPause = false;
-        private Collider collider;
+        private Collider col;
         // Use this for initialization
         private void Start()
         {
@@ -83,7 +83,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_fire = false;
             gun = GetComponentInChildren<GunScript>();
             GameManager.GetComponent<MenuController_Paused>().pauseEvent.AddListener(pause);
-            collider = gameObject.GetComponent<Collider>();
+            col = gameObject.GetComponent<Collider>();
         }
 
         public void pause()
@@ -363,7 +363,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         isHolding = true;
                         carriedObject = p.gameObject;
                         p.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                        Physics.IgnoreCollision(p.gameObject.GetComponent<Collider>(), collider);
+                        Physics.IgnoreCollision(p.gameObject.GetComponent<Collider>(), col);
                         //Debug.Log("starting HOLD");
                     }
                 }
@@ -373,7 +373,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 //Debug.Log("ending HOLD");
                 isHolding = false;
                 carriedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                Physics.IgnoreCollision(carriedObject.gameObject.GetComponent<Collider>(), collider, false) ;
+                Physics.IgnoreCollision(carriedObject.gameObject.GetComponent<Collider>(), col, false) ;
                 carriedObject = null;
             }
             

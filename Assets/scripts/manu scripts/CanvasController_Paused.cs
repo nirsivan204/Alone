@@ -19,21 +19,25 @@ public class CanvasController_Paused : MonoBehaviour
 		pauseControl = GetComponentInParent<MenuController_Paused> (); // We define the pauseControl variable
 	}
 
-	void Update()
-	{
+    void Update()
+    {
 
-		if (pauseControl.isPaused) { // If we are paused,
-			if (pauseControl.canvasIndex == myIndex) { // AND if the canvas index on the MenuController_Paused is the same as ours:
-				myCanvas.enabled = true; // We render the canvas and all of its components.
-			}
+        if (pauseControl.isPaused)
+        { // If we are paused,
+            if (pauseControl.canvasIndex == myIndex)
+            { // AND if the canvas index on the MenuController_Paused is the same as ours:
+                myCanvas.enabled = true; // We render the canvas and all of its components.
+            }
 
-			if (pauseControl.canvasIndex != myIndex) { // But if we are paused, and the indexes aren't the same...
-				myCanvas.enabled = false; // We do NOT render this canvas.
-			}
-		}
+            if (pauseControl.canvasIndex != myIndex)
+            { // But if we are paused, and the indexes aren't the same...
+                myCanvas.enabled = false; // We do NOT render this canvas.
+            }
+        }
 
-		if (!pauseControl.isPaused) { // And, if at any point in time our game is not paused, we do NOT render our canvas.
-			myCanvas.enabled = false;
-		}
-	}
+        if (!pauseControl.isPaused)
+        { // And, if at any point in time our game is not paused, we do NOT render our canvas.
+            myCanvas.enabled = false;
+        }
+    }
 }

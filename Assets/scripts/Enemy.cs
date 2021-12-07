@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         col = GetComponent<BoxCollider>();
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInParent<Rigidbody>();
         deathSound = GetComponent<AudioSource>();
         //animator.SetTrigger("idle");
     }
@@ -40,17 +40,15 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             animator.SetTrigger("idle");
-            Invoke("enableMove", 2.0f);
+            Invoke("enableMove", 1.0f);
             hitPlayerEventStartOrStop.Invoke(false);
+            rb.AddForce(transform.parent.forward * -1, ForceMode.Impulse);
         }
     }
 
