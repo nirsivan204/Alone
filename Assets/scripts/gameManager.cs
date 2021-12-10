@@ -48,7 +48,7 @@ public class gameManager : MonoBehaviour
         //movieClipCamera.SetActive(true);
         currentDirector = pd;
         pd.Play();
-        ui.showSkipButton();
+        ui.showSkipMsg(true);
     }
     PlayableDirector currentDirector;
     public void SkipClip()
@@ -70,7 +70,7 @@ public class gameManager : MonoBehaviour
             enemyManager.GetComponent<EnemiesSpawner>().startSpawn();
             game_started = true;
         }
-        ui.showSkipButton(false);
+        ui.showSkipMsg(false);
         movieClipCamera.SetActive(false);
         playerScript.pause();
     }

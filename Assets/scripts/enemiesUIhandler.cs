@@ -10,7 +10,7 @@ public class enemiesUIhandler : MonoBehaviour
     public GameObject enemySpawner;
     public TextMeshProUGUI enemiesTextComponent;
     public TextMeshProUGUI nWaveTimeTextComponent;
-    public Button skipButton;
+    public GameObject skipMsg;
     public gameManager gm;
 
     // Start is called before the first frame update
@@ -27,19 +27,8 @@ public class enemiesUIhandler : MonoBehaviour
         nWaveTimeTextComponent.text = timeUntilNextWave.ToString();
     }
 
-    public void showSkipButton()
+    internal void showSkipMsg(bool v)
     {
-        skipButton.gameObject.SetActive(true);
-
-    }
-    public void onSkipClick()
-    {
-        gm.SkipClip();
-        skipButton.gameObject.SetActive(false);
-    }
-
-    internal void showSkipButton(bool v)
-    {
-        skipButton.gameObject.SetActive(v);
+        skipMsg.gameObject.SetActive(v);
     }
 }

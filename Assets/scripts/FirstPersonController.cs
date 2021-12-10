@@ -39,8 +39,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private int life;
         public textManager txtmgr;
         public TextMeshProUGUI pressEText;
-        private MenuController_Paused pauseManager; // A reference to the MenuController used for our pause menu
-        public GameObject GameManager;
+        public MenuController_Paused PauseManager;
+        public gameManager gm;
 
         private bool m_fire;
         private Camera m_Camera;
@@ -82,7 +82,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             lifeProgBar.BarValue = 100;
             m_fire = false;
             gun = GetComponentInChildren<GunScript>();
-            GameManager.GetComponent<MenuController_Paused>().pauseEvent.AddListener(pause);
+            PauseManager.pauseEvent.AddListener(pause);
             col = gameObject.GetComponent<Collider>();
         }
 
@@ -165,6 +165,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 {
                     pressEText.enabled = false;
                     gun.setVisibility(false);
+                }
+            }
+            else
+            {
+                if (!m_Jump)
+                {
+                    m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                    if (m_Jump)
+                    {
+                        gm.SkipClip();
+                    }
                 }
             }
         }
