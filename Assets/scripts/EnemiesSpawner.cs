@@ -33,7 +33,6 @@ public class EnemiesSpawner : MonoBehaviour
     private bool finishSpawn;
     public textManager txtmgr;
     public updateUIEvent updateUIevent;
-    private bool isPause = true;
     public gameManager gm;
     public PlayableDirector pd_enemySpawn;
     private bool firstSpawn =true;

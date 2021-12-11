@@ -23,17 +23,21 @@ public class textManager : MonoBehaviour
 }
 
 // Update is called once per frame
-void Update()
-    {
-        if(textQueue.Count > 0 && !isShowingText)
-        {
-            showFromQueue();
-        }
-    }
+    //void Update()
+    //{
+   //     if(textQueue.Count > 0 && !isShowingText)
+    //    {
+   //         showFromQueue();
+    //    }
+   // }
 
     public void showText(string msg)
     {
         textQueue.Enqueue(msg);
+        if (!isShowingText)
+        {
+            showFromQueue();
+        }
     }
     private void showFromQueue()
     {
@@ -46,5 +50,9 @@ void Update()
     private void stopShowing()
     {
         isShowingText = false;
+        if (textQueue.Count > 0)
+        {
+            showFromQueue();
+        }
     }
 }

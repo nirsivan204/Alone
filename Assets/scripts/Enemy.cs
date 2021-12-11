@@ -46,9 +46,9 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             animator.SetTrigger("idle");
-            Invoke("enableMove", 1.0f);
+            Invoke("enableMove", 2.0f);
             hitPlayerEventStartOrStop.Invoke(false);
-            rb.AddForce(transform.parent.forward * -1, ForceMode.Impulse);
+            //rb.AddForce(transform.parent.forward * -2, ForceMode.Impulse);
         }
     }
 
@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("run");
         hitPlayerEventStartOrStop.Invoke(true);
+        //rb.AddForce(transform.parent.forward*2, ForceMode.Impulse);
     }
 
     public void hit()

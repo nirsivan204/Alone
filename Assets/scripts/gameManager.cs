@@ -5,6 +5,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.Playables;
 using Cinemachine;
 using UnityEngine.Timeline;
+using UnityEngine.Events;
+
 public class gameManager : MonoBehaviour
 {
     public PlayableDirector pd_start;
@@ -16,6 +18,7 @@ public class gameManager : MonoBehaviour
     public TimelineAsset enemyShot;
     public TimelineAsset startingShot;
     private bool game_started = false;
+    public UnityEvent gameStarted; 
     [SerializeField] enemiesUIhandler ui;
 
     // Start is called before the first frame update
@@ -31,12 +34,8 @@ public class gameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void showMovieclip(PlayableDirector pd)//TimelineAsset shot)
+    public void showMovieclip(PlayableDirector pd, bool canBeSkipped = true)//TimelineAsset shot)
     {
         playerScript.pause();
         Cursor.lockState = CursorLockMode.Confined;
@@ -48,7 +47,10 @@ public class gameManager : MonoBehaviour
         //movieClipCamera.SetActive(true);
         currentDirector = pd;
         pd.Play();
-        ui.showSkipMsg(true);
+        if (canBeSkipped)
+        {
+            ui.showSkipMsg(true);
+        }
     }
     PlayableDirector currentDirector;
     public void SkipClip()
@@ -69,6 +71,8 @@ public class gameManager : MonoBehaviour
         {
             enemyManager.GetComponent<EnemiesSpawner>().startSpawn();
             game_started = true;
+            gameStarted.Invoke();
+
         }
         ui.showSkipMsg(false);
         movieClipCamera.SetActive(false);

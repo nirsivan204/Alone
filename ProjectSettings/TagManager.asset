@@ -12,6 +12,7 @@ TagManager:
   - MainMenuCanvas
   - enemy
   - ground
+  - hammer
   layers:
   - Default
   - TransparentFX

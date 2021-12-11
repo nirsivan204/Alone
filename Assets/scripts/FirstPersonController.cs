@@ -62,6 +62,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float mouseSensitivity;
         private bool isPause = false;
         private Collider col;
+        private bool isUsingHammer = false;
+        private HammerScript hammer;
         // Use this for initialization
         private void Start()
         {
@@ -82,13 +84,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             lifeProgBar.BarValue = 100;
             m_fire = false;
             gun = GetComponentInChildren<GunScript>();
+            hammer = GetComponentInChildren<HammerScript>();
+            gun.setVisibility(true);
+            hammer.setVisibility(false);
             PauseManager.pauseEvent.AddListener(pause);
             col = gameObject.GetComponent<Collider>();
         }
 
         public void pause()
         {
-            gun.setVisibility(isPause);
+            weaponSetVisibility(isPause);
             isPause = !isPause;
         } 
 
@@ -159,12 +164,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     {
                         pressEText.enabled = false;
                     }
-                    gun.setVisibility(true);
+                    weaponSetVisibility(true);
                 }
                 else
                 {
                     pressEText.enabled = false;
-                    gun.setVisibility(false);
+                    weaponSetVisibility(false);
+                }
+                if (Input.mouseScrollDelta.y != 0)
+                {
+                    replaceWeapon();
                 }
             }
             else
@@ -180,6 +189,35 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        private void weaponSetVisibility(bool isVisible)
+        {
+            if (isUsingHammer)
+            {
+                hammer.setVisibility(isVisible);
+
+            }
+            else
+            {
+                gun.setVisibility(isVisible);
+
+            }
+        }
+
+        private void replaceWeapon()
+        {
+            if (isUsingHammer)
+            {
+                gun.setVisibility(true);
+                hammer.setVisibility(false);
+            }
+            else
+            {
+                gun.setVisibility(false);
+                hammer.setVisibility(true);
+            }
+            isUsingHammer = !isUsingHammer;
+
+        }
 
         private void PlayLandingSound()
         {
@@ -421,7 +459,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         void fire()
         {
-            gun.shoot();
+            if (isUsingHammer)
+            {
+                hammer.shoot();
+            }
+            else
+            {
+                gun.shoot();
+
+            }
         }
 
         private void restart()

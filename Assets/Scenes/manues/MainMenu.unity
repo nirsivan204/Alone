@@ -217,9 +217,24 @@ PrefabInstance:
         JUMP:
         Spacebar
 
-        Pickup: E
+        PICKUP: E
 
-        RUN: Shift'
+        SWITCH GUN: Mouse Wheel
+
+        RUN:
+        Shift'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470692, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470692, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470692, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11477554, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
       propertyPath: m_Text
@@ -230,12 +245,24 @@ PrefabInstance:
       value: game
       objectReference: {fileID: 0}
     - target: {fileID: 22404510, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9068
+      objectReference: {fileID: 0}
+    - target: {fileID: 22404510, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.9543
+      value: 2.121967
+      objectReference: {fileID: 0}
+    - target: {fileID: 22404510, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425434, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9837
       objectReference: {fileID: 0}
     - target: {fileID: 22425434, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.53107
+      value: 0.5908322
       objectReference: {fileID: 0}
     - target: {fileID: 22426094, guid: e736466e9ae79c04cb15175e5833d252, type: 3}
       propertyPath: m_LocalScale.x

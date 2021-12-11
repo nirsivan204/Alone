@@ -10,6 +10,7 @@ public class testnavmesh : MonoBehaviour
     private bool isMoving = false;
     private Rigidbody rb;
     private Collider coll;
+    private Vector3 target;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +30,23 @@ public class testnavmesh : MonoBehaviour
         {
             agent.SetDestination(player.transform.position);
         }
+        else
+        {
+            if (!isMoving && agent.isOnNavMesh)
+            {
+                agent.SetDestination(target);
+            }
+        }
     }
 
     private void startOrStop(bool move)
     {
         isMoving = move;
-        agent.enabled = isMoving;
+        if (!isMoving)
+        {
+            target = player.transform.position - transform.forward * 2;
+        }
+        //agent.enabled = isMoving;
     }
 
     private void waitForAnimation()
