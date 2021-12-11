@@ -9,7 +9,12 @@ public class HammerScript : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource AS;
     [SerializeField] private Collider hammerTrigger;
+    [SerializeField] private ParticleSystem effect1;
+    [SerializeField] private ParticleSystem effect2;
+
     private bool canHammer = true;
+    [SerializeField] private bool hit = false;
+    public bool showHit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +24,13 @@ public class HammerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (showHit && hit)
+        {
+            Instantiate(effect1, transform);
+            Instantiate(effect2, transform);
+            hit = false;
+            AS.Play();
+        }
     }
 
     public void setVisibility(bool state)
@@ -33,8 +44,8 @@ public class HammerScript : MonoBehaviour
         {
             canHammer = false;
             animator.SetTrigger("hit");
-            AS.Play();
             hammerTrigger.enabled = true;
+            //Instantiate(effect,transform);
             Invoke("disableHammerTrigger", 0.3f);
         }
     }

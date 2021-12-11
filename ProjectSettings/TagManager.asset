@@ -13,6 +13,7 @@ TagManager:
   - enemy
   - ground
   - hammer
+  - base
   layers:
   - Default
   - TransparentFX

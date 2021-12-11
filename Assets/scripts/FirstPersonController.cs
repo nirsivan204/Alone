@@ -430,14 +430,30 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void OnTriggerEnter(Collider other)
         {
-            Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            if (enemy && !enemy.dead)
+            if (other.tag == "base")
             {
-                hurt(enemy.demage, enemy.transform.position);
+                hammer.showHit = true;
+            }
+            else
+            {
+                Enemy enemy = other.gameObject.GetComponent<Enemy>();
+                if (enemy && !enemy.dead)
+                {
+                    hurt(enemy.demage, enemy.transform.position);
+                }
             }
         }
 
-        void hurt(int hitPoints, Vector3 enemyPosition)
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.tag == "base")
+            {
+                print("nir");
+                hammer.showHit = false;
+            }
+        }
+
+            void hurt(int hitPoints, Vector3 enemyPosition)
         {
             //enemyPosition
             life -= hitPoints;
