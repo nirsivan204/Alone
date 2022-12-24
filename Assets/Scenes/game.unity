@@ -682,7 +682,7 @@ MonoBehaviour:
   vc: {fileID: 2022924481}
   enemyNumAtStart: 2
   enemyToAdd: 1
-  timeBetweenWaves: 50
+  timeBetweenWaves: 25
   enemy: {fileID: 2056922244}
   txtmgr: {fileID: 1523113110}
   updateUIevent:
@@ -1355,7 +1355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3147040302358693876, guid: 4c677e39fa15ff842bf856fe24df2be9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3147040302358693876, guid: 4c677e39fa15ff842bf856fe24df2be9, type: 3}
       propertyPath: m_TagString
@@ -1438,6 +1438,10 @@ PrefabInstance:
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_Name
       value: missile wing (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_TagString
@@ -1780,7 +1784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2793434880722887793, guid: 1fdcda92da4647d42a046db9a3e20790, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3027879000230457281, guid: 1fdcda92da4647d42a046db9a3e20790, type: 3}
       propertyPath: m_Size.x
@@ -1957,7 +1961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_TagString
@@ -1973,11 +1977,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.26
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.21
+      value: -24.4
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2373,7 +2377,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 81159261a9ccdfa4ea93528d98b79fa2, type: 2}
+  - {fileID: 2100000, guid: 80a94e109604d8645b5adbcf2f3cd898, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7566,7 +7570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_TagString
@@ -7578,7 +7582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.81
+      value: -10.15
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7912,7 +7916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_TagString
@@ -7924,7 +7928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.96
+      value: 19.6
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8104,6 +8108,10 @@ PrefabInstance:
       value: missile wing (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_TagString
       value: part_leg
       objectReference: {fileID: 0}
@@ -8175,7 +8183,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1525655497}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ed3a1139a903da4cab47db9225576f8, type: 3}
   m_Name: 
@@ -8253,7 +8261,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 81159261a9ccdfa4ea93528d98b79fa2, type: 2}
+  - {fileID: 2100000, guid: 80a94e109604d8645b5adbcf2f3cd898, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13108,6 +13116,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!114 &1152204774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11445622, guid: 123f09e1454675845858e353fa10648e, type: 3}
+  m_PrefabInstance: {fileID: 1525655497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8739bca648248c74c89c687226db4322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1167701169 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4016051925629911586, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
@@ -14397,15 +14416,19 @@ PrefabInstance:
       objectReference: {fileID: 6472939}
     - target: {fileID: 11466958, guid: 123f09e1454675845858e353fa10648e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11477794, guid: 123f09e1454675845858e353fa10648e, type: 3}
+      propertyPath: loadRef
+      value: 
+      objectReference: {fileID: 1152204774}
     - target: {fileID: 11477794, guid: 123f09e1454675845858e353fa10648e, type: 3}
       propertyPath: menuType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11477794, guid: 123f09e1454675845858e353fa10648e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11477794, guid: 123f09e1454675845858e353fa10648e, type: 3}
       propertyPath: playerFor3D
@@ -14503,6 +14526,10 @@ PrefabInstance:
     - target: {fileID: 5863030903069417776, guid: f116311b29a514f4aa8b88d2bcb5194d, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863030903069417777, guid: f116311b29a514f4aa8b88d2bcb5194d, type: 3}
+      propertyPath: demage
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5863030903069417777, guid: f116311b29a514f4aa8b88d2bcb5194d, type: 3}
       propertyPath: player
@@ -14751,7 +14778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_TagString
@@ -14767,11 +14794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.05
+      value: 6.2
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.81
+      value: 20.6
       objectReference: {fileID: 0}
     - target: {fileID: 6620361198057402743, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14928,6 +14955,10 @@ PrefabInstance:
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_Name
       value: missile wing (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_TagString
@@ -15990,6 +16021,10 @@ PrefabInstance:
       value: rocket head
       objectReference: {fileID: 0}
     - target: {fileID: 3147040302358693876, guid: 4c677e39fa15ff842bf856fe24df2be9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147040302358693876, guid: 4c677e39fa15ff842bf856fe24df2be9, type: 3}
       propertyPath: m_TagString
       value: part_head
       objectReference: {fileID: 0}
@@ -16066,6 +16101,10 @@ PrefabInstance:
     - target: {fileID: 2793434880722887793, guid: 1fdcda92da4647d42a046db9a3e20790, type: 3}
       propertyPath: m_Name
       value: rocket body
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793434880722887793, guid: 1fdcda92da4647d42a046db9a3e20790, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3027879000230457281, guid: 1fdcda92da4647d42a046db9a3e20790, type: 3}
       propertyPath: m_Size.x
@@ -16350,6 +16389,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1523113110}
     - target: {fileID: 4522318499767110107, guid: 05a42ca212c90f54cb64bcd499f411e6, type: 3}
+      propertyPath: manuRef
+      value: 
+      objectReference: {fileID: 1061851685}
+    - target: {fileID: 4522318499767110107, guid: 05a42ca212c90f54cb64bcd499f411e6, type: 3}
       propertyPath: pressEText
       value: 
       objectReference: {fileID: 34173794}
@@ -16521,6 +16564,10 @@ PrefabInstance:
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_Name
       value: missile wing
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5813003362371496909, guid: eb03e0331d586cb4ca7f4fede47b29c7, type: 3}
       propertyPath: m_TagString

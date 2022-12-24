@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -12,6 +13,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+        [SerializeField] private MenuController_Paused manuRef;
         private GameObject mainCamera;
         public float distance;
         public float smooth;
@@ -448,7 +450,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if (other.tag == "base")
             {
-                print("nir");
                 hammer.showHit = false;
             }
         }
@@ -461,7 +462,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource.Play();
             if (life <= 0)
             {
-                txtmgr.showText("You are dead, restarting in 3 seconds");
+                txtmgr.showText("You are dead, better luck Next time");
                 Invoke("restart", 3);
             }
             lifeProgBar.BarValue = life;
@@ -486,9 +487,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-        private void restart()
+        public void restart()
         {
-            Application.LoadLevel(Application.loadedLevel);
+            //Application.LoadLevel(Application.loadedLevel);
+
+            //SceneManager.LoadScene("MainMenu");
+            manuRef.returnToMainManuFromGame();
+
         }
     }
 }

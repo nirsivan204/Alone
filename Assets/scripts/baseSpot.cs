@@ -199,8 +199,8 @@ public class baseSpot : MonoBehaviour
     [System.Obsolete]
     private void restart()
     {
-        SceneManager.LoadScene("game");
+        //SceneManager.LoadScene("game");
         //SceneManager.LoadScene("MainMenu");
-
+        player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().restart();
     }
 }

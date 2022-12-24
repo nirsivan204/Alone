@@ -2,9 +2,9 @@
 using System.Collections;
 using UnityEngine.Events;
 
-public class MenuController_Paused : MonoBehaviour 
+public class MenuController_Paused : MonoBehaviour
 {
-
+	[SerializeField] ButtonController_Paused loadRef;
 	public bool isPaused; // Bool which determines wether or not our game has been paused.
 	public string buttonToTogglePause; // A string which we declare that will act as the button that will pause the game. Make sure this button is setup in your input settings.
 	public string canvasIndex; // A string that declares the currently rendered canvas.
@@ -23,10 +23,10 @@ public class MenuController_Paused : MonoBehaviour
 	public MenuTypes menuType;
 
 	void awake()
-    {
+	{
 		pauseEvent = new UnityEvent();
 	}
-	void Start() 
+	void Start()
 	{
 		if (menuType == MenuTypes.unity2D) {
 			pauseCamFor3D = null;
@@ -42,9 +42,9 @@ public class MenuController_Paused : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetButtonDown (buttonToTogglePause) && isPaused == false) {
+		if (Input.GetButtonDown(buttonToTogglePause) && isPaused == false) {
 			isPaused = true;
-			CheckPause ();
+			CheckPause();
 		}
 
 		///
@@ -52,6 +52,13 @@ public class MenuController_Paused : MonoBehaviour
 		// of whatever it just was. Then, we set currently rendered canvas equal to the starting canvas, so that if we have multiple canvases, and we arent on the starting
 		// canvas when we un-pause, then we will be when we re-pause the game. We then check the current status of our pase by calling the CheckPause function below.
 		///
+	}
+
+	public void returnToMainManuFromGame()
+    {
+		isPaused = true;
+		CheckPause();
+		loadRef.LoadScene("MainMenu");
 	}
 
 	public void CheckPause()
